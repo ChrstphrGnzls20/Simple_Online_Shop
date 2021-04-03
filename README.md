@@ -1,1 +1,1 @@
-# Simple_Online_Shop
+# Simple Online Shop Script
