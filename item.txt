@@ -1,0 +1,16 @@
+{
+    "mouse": [
+        {
+            "name": "Razer Mouse",
+            "color": "red",
+            "price": 1000,
+            "quantity": 100
+        },
+        {
+            "name": "Logitech",
+            "color": "black",
+            "price": 1500,
+            "quantity": 100
+        }
+    ]
+}
