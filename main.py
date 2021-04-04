@@ -18,7 +18,7 @@ def buy_items(quantity_to_buy, item, user):
 def print_items(items):
     # list of items inside json file
     print('\nItem\t\tColor\tPrice\tQuantity')
-    for x, item in enumerate(items['mouse'], start=1):
+    for x, item in enumerate(items, start=1):
         print('{}. {}\t{}\t{}\t{}'.format(x, item.get('name'),
                                           item.get('color'), item.get('price'), item.get('quantity')))
 def main_transaction():
@@ -29,13 +29,26 @@ def main_transaction():
     for credential, value in user.items():
         print(f'{credential.capitalize()} : {value}')
 
-    print_items(items)
+    # get the categories present in json file
+    category_list = list(items.keys())
+
+    # print the category list (e.g. mouse, keyboard)
+    for idx, category in enumerate(items.keys(), start=1):
+        print(f'{idx}. {category}')
+
+    # choose which set of item to choose from
+    choice_of_category = int(input('Which set of items? ')) - 1
+
+    # then only modify the chosen category
+    category = items.get(category_list[choice_of_category])
+    print_items(category)
+
     # user input to which product he chooses to buy
-    which_item = int(input('What item do you want to buy? '))
+    which_item = int(input('What item do you want to buy? ')) - 1
     to_buy = int(input('How many? '))
 
     # we only pass the item to be modified in which the user chose
-    item_to_buy = items['mouse'][which_item - 1]
+    item_to_buy = category[which_item]
     buy_items(to_buy, item_to_buy, user)
     update_item(items)
     update_user(user)

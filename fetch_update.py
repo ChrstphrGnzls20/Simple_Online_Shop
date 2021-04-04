@@ -11,7 +11,7 @@ def fetch_items():
 def update_user(user):
     time.sleep(1)
     os.system('cls')
-    print("\nUser's credential update:")
+    print("User's credential update:")
     for credential, value in user.items():
         print(f'{credential.capitalize()} : {value}')
     with open('user_credentials.txt', 'w') as my_file:
